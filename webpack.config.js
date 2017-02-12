@@ -1,17 +1,21 @@
 const path = require('path');
+const glob = require('glob');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+
 const PATHS = {
   app: path.join(__dirname, 'app'),
   build: path.join(__dirname, 'build'),
+  style: glob.sync('./app/**/*.css')
 };
 
 const common = {
 
   entry: {
     app: PATHS.app,
+    style: PATHS.style
   },
 
   output: {
@@ -45,7 +49,20 @@ const common = {
       {
         test: /\.css$|\.sass$|\.scss$/,
         use: ExtractTextPlugin.extract({
-          use: ['css-loader', 'sass-loader'],
+          use: [
+            'css-loader', 
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: function(){
+                  return [
+                    require('autoprefixer')
+                  ];
+                }
+              }
+            }, 
+            'sass-loader'
+          ],
           fallback: 'style-loader'
         })
       }

@@ -240,7 +240,7 @@
 /******/ 				};
 /******/ 			});
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 1;
+/******/ 			var chunkId = 0;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -706,60 +706,31 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire("./app/index.js")(__webpack_require__.s = "./app/index.js");
+/******/ 	return hotCreateRequire(0)(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./app/component.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__main2_scss__ = __webpack_require__("./app/main2.scss");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__main2_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__main2_scss__);
-
-/* harmony default export */ __webpack_exports__["default"] = function(){
-  const element = document.createElement('h1');
-  element.innerHTML = 'Hello world2';
-  element.className = 'pink'
-  return element;
-};
-
-/***/ }),
-
-/***/ "./app/index.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__component__ = __webpack_require__("./app/component.js");
-
-let currentComponent = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__component__["default"])();
-
-document.body.appendChild(currentComponent);
-
-// HMR interface
-if(true) {
-  // `.component.js`의 hot update시
-  module.hot.accept("./app/component.js", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { /* harmony import */ __WEBPACK_IMPORTED_MODULE_0__component__ = __webpack_require__("./app/component.js"); (() => {
-    const nextComponent = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__component__["default"])();
-
-    // 기존의 content를 새로 hot load된 component로 바꿈.
-    document.body.replaceChild(nextComponent, currentComponent);
-
-    currentComponent = nextComponent;
-  })(__WEBPACK_OUTDATED_DEPENDENCIES__); });
-}
-
-
-
-/***/ }),
-
-/***/ "./app/main2.scss":
+/***/ "./app/main.css":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./app/test.css":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("./app/main.css");
+module.exports = __webpack_require__("./app/test.css");
+
 
 /***/ })
 
